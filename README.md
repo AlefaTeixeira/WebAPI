@@ -36,10 +36,13 @@ O link acima abrira com erro, pois a pagina nao contem Html, e sim uma api apena
 
 Em caso de dúvidas sempre consultar em:
 
-Documentação .NET:https://docs.microsoft.com/pt-br/dotnet/
-Projetos já existentes no Github: https://github.com/
-Fóruns no StackOverFlow: https://stackoverflow.com/
-Ou faça sua pesquisa direto no Google.
+1 - Documentação .NET:https://docs.microsoft.com/pt-br/dotnet/
+
+2 - Projetos já existentes no Github: https://github.com/
+
+3 - Fóruns no StackOverFlow: https://stackoverflow.com/
+
+4 - Faça sua pesquisa direto no Google.
 
 
 
