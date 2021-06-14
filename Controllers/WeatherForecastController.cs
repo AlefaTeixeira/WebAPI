@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace WebAPI.Controllers
+namespace hello.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -13,8 +13,7 @@ namespace WebAPI.Controllers
     {
         private static readonly string[] Summaries = new[]
         {
-            "Congelando "," Preparando "," Frio "," Frio "," Suave "," Calor "," Balsamico "," Quente "," Sufocante "," Ardente"
-        };
+"Congelando "," Preparando "," Frio "," Frio "," Suave "," Calor "," Balsamico "," Quente "," Sufocante "," Ardente"        };
 
         private readonly ILogger<WeatherForecastController> _logger;
 
