@@ -33,6 +33,10 @@ namespace hello
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPI - Hello", Version = "v1" });
             });
+                services.AddControllers().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
+            
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite("Data Source=myapp.db"));
         }
 
