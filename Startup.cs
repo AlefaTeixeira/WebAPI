@@ -56,6 +56,8 @@ namespace hello
 
             app.UseAuthorization();
 
+            app.UseMiddleware(typeof(ErrorHandlingMiddleware));
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

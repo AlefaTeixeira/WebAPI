@@ -12,7 +12,6 @@ public class FilmeController : ControllerBase{
         _context = context;
     }
 
-  
     // GET api/filmes
     [HttpGet]
     public async Task<List<FilmeOutPutGetAllDTO>> Get() {
@@ -59,6 +58,10 @@ public class FilmeController : ControllerBase{
     [HttpPut("{id}")]
     public async Task<ActionResult<FilmeOutputPutDTO>> Put(long id, [FromBody] FilmeInputPutDTO inputDTO) {
         var filme = new Filme(inputDTO.Titulo, inputDTO.DiretorId);
+
+        if (inputDTO.diretores == 0) {
+            return NotFound ("Nao existem diretores cadastrados!");
+        }  
 
         filme.Id = id;
         _context.Filmes.Update(filme);
