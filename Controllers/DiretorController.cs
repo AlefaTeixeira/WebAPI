@@ -15,8 +15,7 @@ public class DiretorController : ControllerBase {
 
     // GET api/diretores
     [HttpGet]
-    public async Task<List<DiretorOutputGetAllDTO>> Get() {
-
+    public async Task<ActionResult<List<DiretorOutputGetAllDTO>>> Get() {
         var diretores = await _context.Diretores.ToListAsync();
 
         if (!diretores.Any()) {
@@ -73,6 +72,6 @@ public class DiretorController : ControllerBase {
         var diretor = await _context.Diretores.FirstOrDefaultAsync(diretor => diretor.Id == id);
         _context.Remove(diretor);
         await _context.SaveChangesAsync();
-        return Ok(diretor);
+        return Ok();
     }
 }
