@@ -8,9 +8,10 @@ using Microsoft.EntityFrameworkCore;
 [Route("[controller]")]
 public class DiretorController : ControllerBase {
     private readonly ApplicationDbContext _context;
-
-    public DiretorController(ApplicationDbContext context) {
+private readonly DiretorService _diretorService;
+    public DiretorController(ApplicationDbContext context, IDiretorService diretorService) {
         _context = context;
+        _diretorService = diretorService;
     }
     
     /// <summary>
@@ -25,18 +26,15 @@ public class DiretorController : ControllerBase {
     // GET api/diretores
     [HttpGet]
     public async Task<ActionResult<List<DiretorOutputGetAllDTO>>> Get() {
-        var diretores = await _context.Diretores.ToListAsync();
+        var diretores = await _diretorService.GetAll();
 
-        if (!diretores.Any()) {
-            return NotFound ("Nao existem diretores cadastrados!");
+        var outputDTOList = new List<DiretorOutputGetAllDTO>();
+
+        foreach (Diretor diretor in diretores) {
+            outputDTOList.Add(new DiretorOutputGetAllDTO(diretor.Id, diretor.Nome));
         }
 
-        var outputDTOList = new List <DiretorOutputGetAllDTO>();
-
-        foreach (Diretor diretor in diretores){
-            outputDTOList.Add (new DiretorOutputGetAllDTO(diretor.Id, diretor.Nome));
-        }
-            return outputDTOList;
+        return outputDTOList;
     }
 
     /// <summary>
